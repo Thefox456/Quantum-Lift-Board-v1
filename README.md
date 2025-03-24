@@ -21,10 +21,4 @@ Microcontroller-Based Logic Control (PIC16F877A)
 -Handles floor selection logic
 -Controls 7-segment display for floor indication
 -Manages motor control relays & safety interlocks
-Function-------------------------------------------PIC16F877A Pin
-Floor Buttons Input	-------------------------------PORTB (RB0-RB7)
-7-Segment Display	PORTD ---------------------------(D0-D7)
-Motor Control Relays--------------------------------RC0, RC1
-Door Motor PWM--------------------------------------CCP1 (RC2)
-Limit Switches--------------------------------------RA0, RA1
-Overload Sensor-------------------------------------RA2 (ADC)
+
