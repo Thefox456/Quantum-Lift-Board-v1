@@ -1,0 +1,42 @@
+#include <xc.h>
+#define _XTAL_FREQ 4000000
+
+// Define Floor Buttons
+#define FLOOR1 RB0
+#define FLOOR2 RB1
+#define FLOOR3 RB2
+#define FLOOR4 RB3
+#define FLOOR5 RB4
+#define FLOOR6 RB5
+#define FLOOR7 RB6
+#define FLOOR8 RB7
+#define FLOOR9 RC0
+
+// Define Outputs
+#define MOTOR_UP RC1
+#define MOTOR_DOWN RC2
+#define DOOR_OPEN RC3
+#define DOOR_CLOSE RC4
+
+void main() {
+    TRISB = 0xFF; // Set PORTB as input (Floor buttons)
+    TRISC = 0x00; // Set PORTC as output (Motor & Door control)
+    PORTC = 0x00; // Initialize all outputs to 0
+    
+    while(1) {
+        if(FLOOR1) { MOTOR_UP = 1; __delay_ms(5000); MOTOR_UP = 0; } 
+        if(FLOOR2) { MOTOR_UP = 1; __delay_ms(4000); MOTOR_UP = 0; } 
+        if(FLOOR3) { MOTOR_UP = 1; __delay_ms(3000); MOTOR_UP = 0; }
+        if(FLOOR4) { MOTOR_UP = 1; __delay_ms(2000); MOTOR_UP = 0; }
+        if(FLOOR5) { MOTOR_UP = 1; __delay_ms(1000); MOTOR_UP = 0; }
+        if(FLOOR6) { MOTOR_DOWN = 1; __delay_ms(1000); MOTOR_DOWN = 0; }
+        if(FLOOR7) { MOTOR_DOWN = 1; __delay_ms(2000); MOTOR_DOWN = 0; }
+        if(FLOOR8) { MOTOR_DOWN = 1; __delay_ms(3000); MOTOR_DOWN = 0; }
+        if(FLOOR9) { MOTOR_DOWN = 1; __delay_ms(4000); MOTOR_DOWN = 0; }
+        
+        // Open and Close Doors
+        DOOR_OPEN = 1; __delay_ms(2000); DOOR_OPEN = 0;
+        __delay_ms(1000);
+        DOOR_CLOSE = 1; __delay_ms(2000); DOOR_CLOSE = 0;
+    }
+}
